@@ -1,0 +1,10 @@
+version: '3'
+services:
+  app-rust:
+    container_name: app-rust
+    build:
+      context: ./.docker/rust
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    tty: true
