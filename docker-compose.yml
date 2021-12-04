@@ -1,10 +1,12 @@
 version: '3'
 services:
-  app-rust:
-    container_name: app-rust
+  rust:
+    container_name: rust
     build:
       context: ./.docker/rust
       dockerfile: Dockerfile
     volumes:
       - ./:/app
+    ports:
+      - 8080:8080
     tty: true
