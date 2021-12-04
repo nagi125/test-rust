@@ -8,6 +8,7 @@ pub fn run() {
     // sub_a::func_a();
     // sub_b::func_b();
 
+    // mutと定義すると再代入ができるようになる。
     let mut x = 5;
     println!("The value of x is: {}", x);
     x = 6;
@@ -46,4 +47,26 @@ pub fn run() {
     }
 
     println!("The value of y is: {}", y);
+
+    // Tupleサンプル
+    let t1 = (500, 6.4, "dummy");
+    let (x, y, z) = t1;
+    println!("The value of t1 is: {} {} {}", t1.0, t1.1, t1.2);
+
+    // ポインタの値も分割して取得したい場合はrefを使う
+    // _で後半を省略できる
+    let mut t2 = ((0, 1), (2, 3));
+    let ((ref mut x1_ptr, ref mut y1_ptr ), _) = t2;
+
+    // ポインタの参照値を変更(参照外し)
+    *x1_ptr = 5;
+    *y1_ptr = -5;
+
+    // Tupleとか構造体の場合は:?を指定すると幸せになれる
+    println!("{:?}", t2);
+
+
+
+
+
 }
